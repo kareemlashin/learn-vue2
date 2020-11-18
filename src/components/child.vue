@@ -1,18 +1,17 @@
 <template>
   <div>
-  <div>name</div>
-  {{x}}
-  <button @click="toParent()">toParent</button>
-  <!--
+    <div>name</div>
+    {{ x }}
+    <button @click="toParent()">toParent</button>
+    <!--
     in parent
     <child :x="passsTochild" @all="z = $event"></child>
-  -->
-  </div>
+  --></div>
 </template>
 
 <script>
 export default {
- name: "child",
+  name: "child",
   props: ["x"],
   data() {
     return {
@@ -24,9 +23,8 @@ export default {
       this.$emit("all", this.cdc);
     },
   },
-  }
+};
 </script>
 
 <style>
-
 </style>

@@ -1,19 +1,14 @@
 <template>
-  <div>
-  Mixins
-  </div>
+  <div>Mixins</div>
 </template>
 
 <script>
-import all from './one.js'
+import all from "./one.js";
 export default {
-          mixins:[all],
-          filters:{
-                    
-          } 
-}
+  mixins: [all],
+  filters: {},
+};
 </script>
 
 <style>
-
 </style>

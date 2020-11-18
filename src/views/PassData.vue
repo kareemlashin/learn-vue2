@@ -1,38 +1,33 @@
 
 <template>
   <div>
-   PassData
-   <br>
-   {{data}}
-   <br>
-   <button @click="all()">all</button>
-   <slot name="head"></slot>
+    PassData
+    <br />
+    {{ data }}
+    <br />
+    <button @click="all()">all</button>
+    <slot name="head"></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PassData',
-  created() {
-
-  },
+  name: "PassData",
+  created() {},
   data() {
-    return {
-    }
+    return {};
   },
   props: {
-   data:String
+    data: String,
   },
   methods: {
-    all(){
-      this.$emit("all","aaaaaaaaaaaaaaaaaa")
-    }
-   
+    all() {
+      this.$emit("all", "aaaaaaaaaaaaaaaaaa");
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 

@@ -55,8 +55,7 @@ export default {
   components: {
     PassData,
   },
-  mixins:[allMixin],
-
+  mixins: [allMixin],
 };
 </script>
 

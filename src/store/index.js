@@ -31,6 +31,14 @@ export default new Vuex.Store({
             }),
             state.allData.splice((user) => user.id, 1)
         ),
+        updateData(state, id, data) {
+            // Find index
+            const index = state.allData.findIndex(todo => todo.id === data.id);
+
+            if (index === id) {
+                state.allData.splice(index, 1, data);
+            }
+        }
     },
     actions: {
         fetchUsers({ commit }, id) {
@@ -53,12 +61,25 @@ export default new Vuex.Store({
                     commit('addNewUser', response.data);
                 });
         },
-        deleteUser({ commit }, id) {
+
+        deleteUser({
+            commit
+        }, id) {
             axios
                 .delete(`https://5ea6f79384f6290016ba78c2.mockapi.io/api/todo/${id}`)
                 .then((response) => {
                     console.log(response);
                     commit('removeUser', id);
+                });
+        },
+        updateUser({
+            commit
+        }, id, date) {
+            axios
+                .put(`https://5ea6f79384f6290016ba78c2.mockapi.io/api/todo/${id}`, date)
+                .then((response) => {
+                    console.log(response);
+                    commit('updateData', id, date);
                 });
         },
     },

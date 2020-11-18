@@ -64,9 +64,7 @@ export default {
       });
     },
   },
-  beforeMount() {
-  },
-  mounted() {
-  },
+  beforeMount() {},
+  mounted() {},
 };
 </script>

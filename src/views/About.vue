@@ -22,7 +22,7 @@
     </div>
 
     <button @click="add()">add</button>
-    <button @click="delete2()">delete</button>
+    <button @click="deleteUser(id)">delete</button>
   </div>
 </template>
 <script>
@@ -32,6 +32,10 @@ export default {
   methods: {
     add() {
       this.$store.dispatch("addUsers", { title: "title title title title" });
+    },
+    deleteUser(id){
+            this.$store.dispatch("deleteUser", id);
+
     },
     load() {
       this.num++;
