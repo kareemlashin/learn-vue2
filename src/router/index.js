@@ -1,21 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import login from '../views/login.vue'
 import Arouter from '../components/router.vue'
-
+import All from '../views/All.vue'
 Vue.use(VueRouter)
 
-const routes = [{
-        path: '/',
-        name: 'login',
-        component: login,
+const routes = [
+
+    {
+        path: '/All',
+        component: All,
+        meta: {
+            roles: ["one"]
+        },
         beforeEnter: (to, from, next) => {
+            // let x = to.meta.roles;
             if (localStorage.getItem("token")) {
-                next('/Home')
+                next()
             } else {
                 next('/about');
-                this.$router.push('/about')
+
+            }
+        },
+
+    },
+    {
+        path: '/All/:id',
+        component: All,
+        meta: {
+            roles: ["one"]
+        },
+        beforeEnter: (to, from, next) => {
+            // let x = to.meta.roles;
+            if (localStorage.getItem("token")) {
+                next()
+            } else {
+                next('/about');
 
             }
         },
@@ -23,12 +43,12 @@ const routes = [{
     },
     {
         path: '/Home',
-        name: 'Home',
         component: Home,
         meta: {
             roles: ["one"]
         },
         beforeEnter: (to, from, next) => {
+
             if (localStorage.getItem("token")) {
                 next()
             } else {
@@ -44,7 +64,6 @@ const routes = [{
     {
 
         path: '/about',
-        name: 'About',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -57,6 +76,7 @@ const routes = [{
 
 const router = new VueRouter({
         routes,
+        mode: 'history',
         linkActiveClass: 'allActive'
 
     })

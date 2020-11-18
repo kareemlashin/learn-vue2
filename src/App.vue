@@ -1,13 +1,20 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/Home/">Home</router-link> |
+      <router-link to="/Home/">Home</router-link> 
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
+<script>
+export default {
+  mounted() {
+    this.$router.push('/Home') 
 
+  },
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
